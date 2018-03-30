@@ -1,0 +1,21 @@
+<h1>
+  Book Store
+</h1>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Authors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books" routerLinkActive="router-link-active" (click)="openBookDetail(book.id)">
+      <td>{{book.id}}</td>
+      <td>{{book.name}}</td>
+      <td>{{book.authors}}</td>
+    </tr>
+    </tbody>
+</table>
+<ngb-pagination [collectionSize]="noOfBooks" [pageSize]="5" (pageChange)="bookPageChanged($event)" [(page)]="page"></ngb-pagination>
